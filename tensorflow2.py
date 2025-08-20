@@ -6,7 +6,7 @@ import numpy as np
 x=np.linspace(-10,10,200).reshape(-1,1)
 y=np.array([1 if i > 0 else 0 for i in x])
 
-#aciva la secuencia de forma sigmoide, lo que da resutados de 0 y 1 (binario)
+#activa la secuencia de forma sigmoide, lo que da resutados de 0 y 1 (binario)
 model=tf.keras.Sequential([
     tf.keras.layers.Dense(1, activation="sigmoid", input_shape=(1,)),
 ])
