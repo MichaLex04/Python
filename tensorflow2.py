@@ -12,9 +12,12 @@ model=tf.keras.Sequential([
 ])
 
 #
+tf.keras.utils.set_random_seed(1)
 model.compile(optimizer="adam", loss="binary_crossentropy")
 model.fit(x,y,epochs=2, vorbose=0)
 
 #
 y_pred=model.predict(np.array([[-3],[-2],[-20],[50]]))
 print(y_pred.round())
+
+
