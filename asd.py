@@ -1,13 +1,17 @@
-import tensorflow as tf
-import numpy as np
+from sklearn.neural_network import MLPClassifier
+from sklearn.datasets import fetch_openml
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, classification_report
+#OPCIONAL
+import matplotlib.pyplot as plt
 
-x=np.arange(1,11,1).reshape(5,2)
-y=np.arange(3,20,4).reshape(5,1)
+mnist=fetch_openml("mnist_784", version=1, as_frame=False)
 
-model=tf.keras.Sequential([
-    tf.keras.layers.Dense(1,activation="linear",input_shape=(2,))
-])
+x=mnist.data
+y=mnist.target
+x=x/255.0
 
-model.compile(optimizer="sgd",loss="mse")
-model.fit(x,y,epochs=100,verbose=0)
-print(model.predict(np.array([[10,5]])))
+print(x[0])
+print(y[0])
+plt.imshow(x[0].reshape(28,28))
+plt.show()
